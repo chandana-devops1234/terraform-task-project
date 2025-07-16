@@ -41,3 +41,14 @@ resource "azurerm_subnet" "subnet2" {
     virtual_network_name = azurerm_virtual_network.terra_vnet.name
     address_prefixes     = ["10.0.2.0/24"]
 }
+resource "azurerm_network_interface" "nicterra" {
+  name                = "nic-terra"
+  location            = azurerm_resource_group.storeterra.location
+  resource_group_name = azurerm_resource_group.storeterra.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet1.id  # You can also use subnet2.id if preferred
+    private_ip_address_allocation = "Dynamic"
+  }
+}
