@@ -1,5 +1,5 @@
-resource "azurerm_resource_group" "terras" {
-  name     = "terras"
+resource "azurerm_resource_group" "terra" {
+  name     = "terra"
   location = "East US"
 }
 resource "azurerm_resource_group" "storeterra" {
